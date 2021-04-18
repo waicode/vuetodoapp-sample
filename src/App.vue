@@ -7,11 +7,16 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import playground from './playground'
 
 export default {
   name: 'App',
   components: {
     HelloWorld
+  },
+  // this function is run automaticaly by Vue FW
+  created() {
+    playground();
   }
 }
 </script>
