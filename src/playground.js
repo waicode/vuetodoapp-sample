@@ -1,3 +1,4 @@
 export default function() {
-    console.log("playground!!!")
+  let firstName = "Filip";
+  console.log(firstName);
 }
