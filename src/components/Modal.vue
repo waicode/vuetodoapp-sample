@@ -1,7 +1,8 @@
 <template>
   <div class="modal" :class="{ isActive: isOpen }">
     <div class="modalContent">
-      Modal Window
+      <span class="close" @click="emitCloseModal()">&times;</span>
+      <p>Modal Window</p>
     </div>
   </div>
 </template>
@@ -13,9 +14,23 @@ export default {
       type: Boolean,
     },
   },
+  methods: {
+    emitCloseModal() {
+      this.$emit("modalClosed", { value: "Just testing" });
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  &:hover {
+    cursor: pointer;
+  }
+}
 .modal {
   display: none;
   position: fixed;

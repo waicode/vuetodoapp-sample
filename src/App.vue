@@ -4,13 +4,13 @@
       <div class="todoContainer">
         <TodoList :todos="todos" />
         <div class="todoCreateBtnContainer">
-          <div class="appButton" @click="openModal()">
+          <div class="appButton" @click="isModalOpen = true">
             Create
           </div>
         </div>
       </div>
     </div>
-    <Modal :isOpen="isModalOpen" />
+    <Modal :isOpen="isModalOpen" @modalClosed="isModalOpen = false" />
   </div>
 </template>
 
@@ -41,11 +41,6 @@ export default {
   // this function is run automaticaly by Vue FW
   created() {
     playground();
-  },
-  methods: {
-    openModal() {
-      this.isModalOpen = !this.isModalOpen;
-    },
   },
 };
 </script>
