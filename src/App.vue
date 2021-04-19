@@ -2,30 +2,7 @@
   <div id="app">
     <div class="todoWrapper">
       <div class="todoContainer">
-        <div class="todoList">
-          <div class="todoItem">
-            <div class="todoItemContent">
-              <div class="todoItemContentTitle">Walk the dog</div>
-              <div class="todoItemContentDescription">
-                Go to forrest near the Zoo
-              </div>
-            </div>
-          </div>
-          <div class="todoItem">
-            <div class="todoItemContent">
-              <div class="todoItemContentTitle">Buy a bread</div>
-              <div class="todoItemContentDescription">Whole plain bread</div>
-            </div>
-          </div>
-          <div class="todoItem">
-            <div class="todoItemContent">
-              <div class="todoItemContentTitle">Learn programming</div>
-              <div class="todoItemContentDescription">
-                Tommorow would be best!!!
-              </div>
-            </div>
-          </div>
-        </div>
+        <TodoList :todos="todos" />
       </div>
     </div>
   </div>
@@ -33,22 +10,29 @@
 
 <script>
 import playground from "./playground";
+import TodoList from "@/components/TodoList";
 
 export default {
   name: "App",
-  components: {},
+  components: {
+    TodoList,
+  },
+  data() {
+    return {
+      todos: [
+        {
+          _id: 1,
+          title: "Walk the dog",
+          description: "Go to forrest near the Zoo",
+        },
+        { _id: 2, title: "Buy the bread", description: "Test Test" },
+        { _id: 3, title: "Learn programming", description: "Python ruby" },
+      ],
+    };
+  },
   // this function is run automaticaly by Vue FW
   created() {
     playground();
-  },
-  methods: {
-    testFunctionA() {
-      console.log(this.text);
-      console.log(this.someNumber);
-      console.log(this.someObject.a);
-      this.dataFunction();
-      return "I am test Fn A";
-    },
   },
 };
 </script>
@@ -62,27 +46,17 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
-.todoWrapper {
-  display: flex;
-  justify-content: center;
-  /* flex-direction: column; */
-  width: 100%;
-  /* height: 2000px; */
-}
-.todoContainer {
-  width: 400px;
-  min-height: 400px;
-  background-color: #ededed;
-  border-radius: 5px;
-}
-
-.todoItem {
-  background-color: gray;
-  height: 70px;
-  margin: 10px;
-  padding: 10px;
-  color: white;
-  border-radius: 5px;
-  font-size: 23px;
+.todo {
+  &Wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  &Container {
+    width: 400px;
+    min-height: 400px;
+    background-color: #ededed;
+    border-radius: 5px;
+  }
 }
 </style>
