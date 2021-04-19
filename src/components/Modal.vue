@@ -1,7 +1,12 @@
 <template>
   <div class="modal" :class="{ isActive: isOpen }">
     <div class="modalContent">
-      <span class="close" @click="emitCloseModal()">&times;</span>
+      <span
+        class="close"
+        @click="$emit('modalClosed', { value: 'Just testing' })"
+      >
+        &times;
+      </span>
       <p>Modal Window</p>
     </div>
   </div>
@@ -12,11 +17,6 @@ export default {
     isOpen: {
       required: true,
       type: Boolean,
-    },
-  },
-  methods: {
-    emitCloseModal() {
-      this.$emit("modalClosed", { value: "Just testing" });
     },
   },
 };
