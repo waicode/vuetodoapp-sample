@@ -1,16 +1,33 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <h1>Hello World</h1>
-    <div>{{ text }}</div>
-    <div>{{ someNumber }}</div>
-    <div>{{ canDecide }}</div>
-    <div>{{ list }}</div>
-    <div>{{ someObject.a }}</div>
-    <div>{{ someObject.c }}</div>
-    <div>{{ dataFunction }}</div>
-    <div>{{ dataFunction() }}</div>
-    <div>{{ testFunctionA() }}</div>
+    <div class="todoWrapper">
+      <div class="todoContainer">
+        <div class="todoList">
+          <div class="todoItem">
+            <div class="todoItemContent">
+              <div class="todoItemContentTitle">Walk the dog</div>
+              <div class="todoItemContentDescription">
+                Go to forrest near the Zoo
+              </div>
+            </div>
+          </div>
+          <div class="todoItem">
+            <div class="todoItemContent">
+              <div class="todoItemContentTitle">Buy a bread</div>
+              <div class="todoItemContentDescription">Whole plain bread</div>
+            </div>
+          </div>
+          <div class="todoItem">
+            <div class="todoItemContent">
+              <div class="todoItemContentTitle">Learn programming</div>
+              <div class="todoItemContentDescription">
+                Tommorow would be best!!!
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -20,23 +37,6 @@ import playground from "./playground";
 export default {
   name: "App",
   components: {},
-  data() {
-    return {
-      text: "Some String value",
-      someNumber: 16,
-      canDecide: true,
-      list: [1, 2, 3],
-      someObject: {
-        a: 1,
-        b: 2,
-        c: [1, 2, 3, 4, 5],
-      },
-      dataFunction() {
-        console.log("Data Function");
-        return "Data Function";
-      },
-    };
-  },
   // this function is run automaticaly by Vue FW
   created() {
     playground();
@@ -53,7 +53,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -61,5 +61,28 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.todoWrapper {
+  display: flex;
+  justify-content: center;
+  /* flex-direction: column; */
+  width: 100%;
+  /* height: 2000px; */
+}
+.todoContainer {
+  width: 400px;
+  min-height: 400px;
+  background-color: #ededed;
+  border-radius: 5px;
+}
+
+.todoItem {
+  background-color: gray;
+  height: 70px;
+  margin: 10px;
+  padding: 10px;
+  color: white;
+  border-radius: 5px;
+  font-size: 23px;
 }
 </style>
