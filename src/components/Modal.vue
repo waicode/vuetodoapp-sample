@@ -1,23 +1,24 @@
 <template>
-  <div class="modal" :class="{ isActive: isOpen }">
-    <div class="modalContent">
-      <span
-        class="close"
-        @click="$emit('modalClosed', { value: 'Just testing' })"
-      >
-        &times;
-      </span>
-      <p>Modal Window</p>
+  <div>
+    <div class="appButton" @click="isOpen = true">
+      Create
+    </div>
+    <div class="modal" :class="{ isActive: isOpen }">
+      <div class="modalContent">
+        <span class="close" @click="isOpen = false">
+          &times;
+        </span>
+        <p>Modal Window</p>
+      </div>
     </div>
   </div>
 </template>
 <script>
 export default {
-  props: {
-    isOpen: {
-      required: true,
-      type: Boolean,
-    },
+  data() {
+    return {
+      isOpen: false,
+    };
   },
 };
 </script>

@@ -4,13 +4,10 @@
       <div class="todoContainer">
         <TodoList :todos="todos" />
         <div class="todoCreateBtnContainer">
-          <div class="appButton" @click="isModalOpen = true">
-            Create
-          </div>
+          <Modal />
         </div>
       </div>
     </div>
-    <Modal :isOpen="isModalOpen" @modalClosed="isModalOpen = false" />
   </div>
 </template>
 
@@ -26,7 +23,6 @@ export default {
   },
   data() {
     return {
-      isModalOpen: false,
       todos: [
         {
           _id: 1,
