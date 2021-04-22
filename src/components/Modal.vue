@@ -8,7 +8,16 @@
         <span class="close" @click="isOpen = false">
           &times;
         </span>
-        <p>Modal Window</p>
+        <form class="appForm">
+          <div class="formControl">
+            <label class="label">Title</label>
+            <input type="text" />
+          </div>
+          <div class="formControl">
+            <label class="label">Description</label>
+            <input type="text" />
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -23,6 +32,21 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.appForm {
+  .label {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .formInput {
+    padding: 10px;
+    font-size: 17px;
+  }
+  .formControl {
+    margin-bottom: 10px;
+  }
+}
+
 .close {
   color: #aaa;
   float: right;
