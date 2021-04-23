@@ -11,12 +11,13 @@
         <form class="appForm">
           <div class="formControl">
             <label class="label">Title</label>
-            <input type="text" />
+            <input class="formInput" type="text" />
           </div>
           <div class="formControl">
             <label class="label">Description</label>
-            <input type="text" />
+            <input class="formInput" type="text" />
           </div>
+          <button type="button" class="appButton isPrimary">Confirm</button>
         </form>
       </div>
     </div>
@@ -73,6 +74,7 @@ export default {
     border: 1px solid #888;
     border-radius: 3px;
     width: 80%;
+    text-align: left;
   }
   &.isActive {
     display: block;
