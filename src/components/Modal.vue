@@ -11,13 +11,19 @@
         <form class="appForm">
           <div class="formControl">
             <label class="label">Title</label>
-            <input class="formInput" type="text" />
+            <input v-model="form.title" class="formInput" type="text" />
           </div>
           <div class="formControl">
             <label class="label">Description</label>
-            <input class="formInput" type="text" />
+            <input v-model="form.description" class="formInput" type="text" />
           </div>
-          <button type="button" class="appButton isPrimary">Confirm</button>
+          <button
+            @click="createTodo()"
+            type="button"
+            class="appButton isPrimary"
+          >
+            Confirm
+          </button>
         </form>
       </div>
     </div>
@@ -28,7 +34,16 @@ export default {
   data() {
     return {
       isOpen: false,
+      form: {
+        title: "",
+        description: "",
+      },
     };
+  },
+  methods: {
+    createTodo() {
+      console.log(this.form);
+    },
   },
 };
 </script>
