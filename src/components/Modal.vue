@@ -8,23 +8,7 @@
         <span class="close" @click="isOpen = false">
           &times;
         </span>
-        <form class="appForm">
-          <div class="formControl">
-            <label class="label">Title</label>
-            <input v-model="form.title" class="formInput" type="text" />
-          </div>
-          <div class="formControl">
-            <label class="label">Description</label>
-            <input v-model="form.description" class="formInput" type="text" />
-          </div>
-          <button
-            @click="createTodo()"
-            type="button"
-            class="appButton isPrimary"
-          >
-            Confirm
-          </button>
-        </form>
+        <slot />
       </div>
     </div>
   </div>
@@ -34,35 +18,11 @@ export default {
   data() {
     return {
       isOpen: false,
-      form: {
-        title: "",
-        description: "",
-      },
     };
-  },
-  methods: {
-    createTodo() {
-      console.log(this.form);
-    },
   },
 };
 </script>
 <style lang="scss" scoped>
-.appForm {
-  .label {
-    display: block;
-    font-size: 18px;
-    font-weight: bold;
-  }
-  .formInput {
-    padding: 10px;
-    font-size: 17px;
-  }
-  .formControl {
-    margin-bottom: 10px;
-  }
-}
-
 .close {
   color: #aaa;
   float: right;
