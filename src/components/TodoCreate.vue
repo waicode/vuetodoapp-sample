@@ -14,7 +14,7 @@
           class="formInput"
         />
       </div>
-      <button @click="createTodo()" type="button" class="appButton isPrimary">
+      <button @click="submitForm()" type="button" class="appButton isPrimary">
         Confirm
       </button>
     </form>
@@ -36,8 +36,13 @@ export default {
     };
   },
   methods: {
-    createTodo() {
-      console.log(this.form);
+    submitForm() {
+      this.$emit("formSubmitted", { ...this.form });
+      this.resetForm();
+    },
+    resetForm() {
+      this.form.title = "";
+      this.form.description = "";
     },
   },
 };

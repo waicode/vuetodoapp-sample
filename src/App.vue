@@ -4,7 +4,7 @@
       <div class="todoContainer">
         <TodoList :todos="todos" />
         <div class="todoCreateBtnContainer">
-          <TodoCreate />
+          <TodoCreate @formSubmitted="createTodo" />
         </div>
       </div>
     </div>
@@ -37,6 +37,11 @@ export default {
   // this function is run automaticaly by Vue FW
   created() {
     playground();
+  },
+  methods: {
+    createTodo(todo) {
+      this.todos.push(todo);
+    },
   },
 };
 </script>
