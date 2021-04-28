@@ -1,5 +1,5 @@
 <template>
-  <Modal>
+  <Modal ref="modal">
     <form class="appForm">
       <div class="formControl">
         <label class="label">Title</label>
@@ -39,11 +39,15 @@ export default {
     isFormValid() {
       return this.form.title && this.form.description ? true : false;
     },
+    modal() {
+      return this.$refs.modal;
+    },
   },
   methods: {
     submitForm() {
       if (this.isFormValid) {
         this.$emit("formSubmitted", { ...this.form });
+        this.modal.close();
         this.resetForm();
       }
     },
