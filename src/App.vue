@@ -83,6 +83,9 @@ export default {
   }
   .formControl {
     margin-bottom: 10px;
+    &Last {
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -103,5 +106,9 @@ export default {
   &CreateBtnContainer {
     margin: 10px;
   }
+}
+
+.appError {
+  color: #ff3d00;
 }
 </style>
