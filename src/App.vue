@@ -59,11 +59,18 @@ export default {
   font-size: 20px;
   padding: 10px;
   border-radius: 5px;
+  border: none;
   background-color: #795899;
   color: #fff;
   font-weight: bold;
   &.isPrimary {
     background-color: #66bb6a;
+  }
+  &.isWarning {
+    background-color: #ffa753;
+  }
+  &.isDanger {
+    background-color: #dd2c00;
   }
 
   &:hover {
