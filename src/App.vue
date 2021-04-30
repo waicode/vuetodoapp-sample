@@ -15,6 +15,7 @@
 import playground from "./playground";
 import TodoList from "@/components/TodoList";
 import TodoCreate from "@/components/TodoCreate";
+import store from "@/store";
 export default {
   name: "App",
   components: {
@@ -23,15 +24,7 @@ export default {
   },
   data() {
     return {
-      todos: [
-        {
-          _id: 1,
-          title: "Walk the dog",
-          description: "Go to forrest near the Zoo",
-        },
-        { _id: 2, title: "Buy the bread", description: "Test Test" },
-        { _id: 3, title: "Learn programming", description: "Python ruby" },
-      ],
+      todos: store.state.todos,
     };
   },
   // this function is run automaticaly by Vue FW
@@ -40,7 +33,7 @@ export default {
   },
   methods: {
     createTodo(todo) {
-      this.todos.push(todo);
+      store.createTodo(todo);
     },
   },
 };
