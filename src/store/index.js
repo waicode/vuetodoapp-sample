@@ -10,11 +10,18 @@ const store = {
       { _id: 3, title: "Learn programming", description: "Python ruby" },
     ],
   },
-  createTodo(todo) {
-    todo._id = Math.random()
-      .toString(36)
-      .substr(2, 7);
-    this.state.todos.push(todo);
+  actions: {
+    createTodo(state, todo) {
+      todo._id = Math.random()
+        .toString(36)
+        .substr(2, 7);
+      state.todos.push(todo);
+    },
+  },
+  dispatch: function(action, payload) {
+    if (!this.actions[action])
+      throw new Error(`Action ${action} is not defined in the store.`);
+    return this.actions[action](this.state, payload);
   },
 };
 
