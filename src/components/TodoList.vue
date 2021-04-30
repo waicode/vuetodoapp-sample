@@ -1,12 +1,17 @@
 <template>
   <div class="todoList">
-    <TodoItem
-      v-for="todo in todos"
-      :key="todo._id"
-      :_id="todo._id"
-      :title="todo.title"
-      :description="todo.description"
-    />
+    <div v-if="todos && todos.length > 0">
+      <TodoItem
+        v-for="todo in todos"
+        :key="todo._id"
+        :_id="todo._id"
+        :title="todo.title"
+        :description="todo.description"
+      />
+    </div>
+    <div v-else class="noTodos">
+      No todos :( Let's create one!!!
+    </div>
   </div>
 </template>
 
@@ -24,5 +29,11 @@ export default {
 <style lang="scss" scoped>
 .todoList {
   flex: 1;
+}
+.noTodos {
+  padding: 20px;
+  font-size: 23px;
+  font-weight: bold;
+  text-align: center;
 }
 </style>

@@ -99,7 +99,7 @@ export default {
     display: flex;
     flex-direction: column;
     width: 400px;
-    min-height: 400px;
+    min-height: 150px;
     background-color: #ededed;
     border-radius: 5px;
   }

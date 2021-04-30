@@ -65,12 +65,11 @@ export default {
   },
   methods: {
     updateTodo() {
-      console.log(this.todo);
       store.dispatch("updateTodo", { ...this.todo });
       this.editMode = false;
     },
     deleteTodo() {
-      alert("Delete!!!");
+      store.dispatch("deleteTodo", this.todo._id);
     },
   },
 };

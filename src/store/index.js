@@ -25,6 +25,12 @@ const store = {
       });
       Vue.set(state.todos, index, todoToUpdate);
     },
+    deleteTodo(state, todoId) {
+      const index = state.todos.findIndex((todo) => {
+        return todo.id === todoId;
+      });
+      state.todos.splice(index, 1);
+    },
   },
   dispatch: function(action, payload) {
     if (!this.actions[action])
