@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <div id="appTitle">Vue.js TODO App Sample</div>
     <div class="todoWrapper">
       <div class="todoContainer">
         <TodoList :todos="todos" />
@@ -12,7 +13,6 @@
 </template>
 
 <script>
-import playground from "./playground";
 import TodoList from "@/components/TodoList";
 import TodoCreate from "@/components/TodoCreate";
 import store from "@/store";
@@ -27,9 +27,8 @@ export default {
       todos: store.state.todos,
     };
   },
-  // this function is run automaticaly by Vue FW
   created() {
-    playground();
+    this.todos = store.dispatch("initStore");
   },
   methods: {
     createTodo(todo) {
@@ -45,7 +44,14 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 35px;
+  &Title {
+    display: flex;
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    justify-content: center;
+  }
 }
 
 .appButton {

@@ -10,7 +10,7 @@
       />
     </div>
     <div v-else class="noTodos">
-      No todos :( Let's create one!!!
+      TODOを登録しましょう
     </div>
   </div>
 </template>
