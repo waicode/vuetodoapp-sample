@@ -8,21 +8,26 @@
     </div>
     <div class="todoItemButton">
       <button @click="editMode = true" class="appButton isWarning">Edit</button>
+      <button @click="deleteTodo" class="appButton isDanger">Delete</button>
     </div>
   </div>
   <div v-else class="todoItem">
     <form class="appForm">
       <div class="formControl">
         <label class="label">Title</label>
-        <input class="formInput" type="text" />
+        <input :value="title" class="formInput" type="text" />
       </div>
       <div class="formControl formControlLast">
         <label class="label">Description</label>
-        <textarea cols="30" rows="2" class="formInput" />
+        <textarea :value="description" cols="30" rows="2" class="formInput" />
       </div>
       <div class="todoItemButton">
-        <button @click="editTodo" class="appButton isWarning">Update</button>
-        <button @click="deleteTodo" class="appButton isDanger">Delete</button>
+        <button @click.prevent="updateTodo" class="appButton isWarning">
+          Update
+        </button>
+        <button @click.prevent="editMode = false" class="appButton isDanger">
+          Cancel
+        </button>
       </div>
     </form>
   </div>
@@ -44,8 +49,12 @@ export default {
     };
   },
   methods: {
-    editTodo() {},
-    deleteTodo() {},
+    updateTodo() {
+      alert("Update!!!");
+    },
+    deleteTodo() {
+      alert("Delete!!!");
+    },
   },
 };
 </script>
