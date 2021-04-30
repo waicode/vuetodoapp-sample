@@ -71,6 +71,9 @@ export default {
   &.isDanger {
     background-color: #dd2c00;
   }
+  &.isCancel {
+    background-color: #bdbdbd;
+  }
 
   &:hover {
     cursor: pointer;
@@ -83,14 +86,19 @@ export default {
     font-size: 18px;
     font-weight: bold;
   }
-  .formInput {
-    padding: 10px;
-    font-size: 17px;
-  }
-  .formControl {
-    margin-bottom: 10px;
-    &Last {
-      margin-bottom: 0;
+  .form {
+    &Input {
+      padding: 10px;
+      font-size: 17px;
+    }
+    &Control {
+      margin-bottom: 10px;
+      &Last {
+        margin-bottom: 0;
+      }
+    }
+    &Error {
+      margin-bottom: 5px;
     }
   }
 }

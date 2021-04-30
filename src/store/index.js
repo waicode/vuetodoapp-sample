@@ -47,27 +47,30 @@ const store = {
     createTodo(state, todo) {
       todo._id = getRandomId();
       state.todos.push(todo);
-      setTodosToLocalStorage(state.todos);
+      return state.todos;
     },
     updateTodo(state, todoToUpdate) {
       const index = state.todos.findIndex((todo) => {
         return todo.id === todoToUpdate._id;
       });
       Vue.set(state.todos, index, todoToUpdate);
-      setTodosToLocalStorage(state.todos);
+      return state.todos;
     },
     deleteTodo(state, todoId) {
       const index = state.todos.findIndex((todo) => {
         return todo.id === todoId;
       });
       state.todos.splice(index, 1);
-      setTodosToLocalStorage(state.todos);
+      return state.todos;
     },
   },
   dispatch: function(action, payload) {
     if (!this.actions[action])
       throw new Error(`Action ${action} is not defined in the store.`);
-    return this.actions[action](this.state, payload);
+    const result = this.actions[action](this.state, payload);
+    if (!result) return;
+    setTodosToLocalStorage(result);
+    return result;
   },
 };
 

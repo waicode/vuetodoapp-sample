@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="appButton" @click="isOpen = true">
-      Create
+      TODOを新規登録
     </div>
     <div class="modal" :class="{ isActive: isOpen }">
       <div class="modalContent">
@@ -60,7 +60,7 @@ export default {
     padding: 20px;
     border: 1px solid #888;
     border-radius: 3px;
-    width: 80%;
+    width: 56%;
     text-align: left;
   }
   &.isActive {

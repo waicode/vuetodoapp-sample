@@ -7,18 +7,20 @@
       </div>
     </div>
     <div class="todoItemButton">
-      <button @click="editMode = true" class="appButton isWarning">Edit</button>
-      <button @click="deleteTodo" class="appButton isDanger">Delete</button>
+      <button @click="editMode = true" class="appButton isWarning">
+        編集
+      </button>
+      <button @click="deleteTodo" class="appButton isDanger">削除</button>
     </div>
   </div>
   <div v-else class="todoItem">
     <form class="appForm">
       <div class="formControl">
-        <label class="label">Title</label>
+        <label class="label">タイトル</label>
         <input v-model="todo.title" class="formInput" type="text" />
       </div>
       <div class="formControl formControlLast">
-        <label class="label">Description</label>
+        <label class="label">メモ</label>
         <textarea
           v-model="todo.description"
           cols="30"
@@ -28,10 +30,10 @@
       </div>
       <div class="todoItemButton">
         <button @click.prevent="updateTodo" class="appButton isWarning">
-          Update
+          更新する
         </button>
-        <button @click.prevent="editMode = false" class="appButton isDanger">
-          Cancel
+        <button @click.prevent="editMode = false" class="appButton isCancel">
+          キャンセル
         </button>
       </div>
     </form>
@@ -87,10 +89,11 @@ export default {
     &Content {
       margin-bottom: 5px;
       &Title {
+        font-size: 24px;
         font-weight: bold;
       }
       &Description {
-        font-size: 19px;
+        font-size: 16px;
       }
     }
     &Button {

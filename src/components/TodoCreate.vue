@@ -2,11 +2,11 @@
   <Modal ref="modal">
     <form class="appForm">
       <div class="formControl">
-        <label class="label">Title</label>
+        <label class="label">タイトル</label>
         <input v-model="form.title" class="formInput" type="text" />
       </div>
       <div class="formControl formControlLast">
-        <label class="label">Description</label>
+        <label class="label">メモ</label>
         <textarea
           v-model="form.description"
           cols="30"
@@ -20,7 +20,7 @@
         </div>
       </div>
       <button @click="submitForm()" type="button" class="appButton isPrimary">
-        Confirm
+        登録する
       </button>
     </form>
   </Modal>
@@ -43,9 +43,7 @@ export default {
   },
   computed: {
     isFormValid() {
-      return this.form.title.length > 8 && this.form.description.length > 10
-        ? true
-        : false;
+      return this.form.title.length > 0 ? true : false;
     },
     modal() {
       return this.$refs.modal;
@@ -59,8 +57,7 @@ export default {
         this.modal.close();
         this.resetForm();
       } else {
-        this.formError =
-          "Form Error!!! Title needs to be longer than 8 charactors and description longer than 10 characters.";
+        this.formError = "タイトルは必須です";
       }
     },
     resetForm() {
@@ -70,8 +67,4 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped>
-.formError {
-  margin-bottom: 5px;
-}
-</style>
+<style lang="scss" scoped></style>
