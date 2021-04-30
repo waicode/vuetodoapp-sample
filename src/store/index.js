@@ -1,13 +1,15 @@
+import Vue from "vue";
+
 const store = {
   state: {
     todos: [
       {
-        _id: 1,
+        _id: "1",
         title: "Walk the dog",
         description: "Go to forrest near the Zoo",
       },
-      { _id: 2, title: "Buy the bread", description: "Test Test" },
-      { _id: 3, title: "Learn programming", description: "Python ruby" },
+      { _id: "2", title: "Buy the bread", description: "Test Test" },
+      { _id: "3", title: "Learn programming", description: "Python ruby" },
     ],
   },
   actions: {
@@ -16,6 +18,12 @@ const store = {
         .toString(36)
         .substr(2, 7);
       state.todos.push(todo);
+    },
+    updateTodo(state, todoToUpdate) {
+      const index = state.todos.findIndex((todo) => {
+        return todo.id === todoToUpdate._id;
+      });
+      Vue.set(state.todos, index, todoToUpdate);
     },
   },
   dispatch: function(action, payload) {

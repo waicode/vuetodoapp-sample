@@ -1,9 +1,9 @@
 <template>
   <div v-if="!editMode" class="todoItem">
     <div class="todoItemContent">
-      <div class="todoItemContentTitle">{{ title }}</div>
+      <div class="todoItemContentTitle">{{ todo.title }}</div>
       <div class="todoItemContentDescription">
-        {{ description }}
+        {{ todo.description }}
       </div>
     </div>
     <div class="todoItemButton">
@@ -15,11 +15,16 @@
     <form class="appForm">
       <div class="formControl">
         <label class="label">Title</label>
-        <input :value="title" class="formInput" type="text" />
+        <input v-model="todo.title" class="formInput" type="text" />
       </div>
       <div class="formControl formControlLast">
         <label class="label">Description</label>
-        <textarea :value="description" cols="30" rows="2" class="formInput" />
+        <textarea
+          v-model="todo.description"
+          cols="30"
+          rows="2"
+          class="formInput"
+        />
       </div>
       <div class="todoItemButton">
         <button @click.prevent="updateTodo" class="appButton isWarning">
@@ -33,8 +38,13 @@
   </div>
 </template>
 <script>
+import store from "@/store";
 export default {
   props: {
+    _id: {
+      type: String,
+      require: true,
+    },
     title: {
       type: String,
       require: true,
@@ -46,11 +56,18 @@ export default {
   data() {
     return {
       editMode: false,
+      todo: {
+        _id: this._id,
+        title: this.title,
+        description: this.description,
+      },
     };
   },
   methods: {
     updateTodo() {
-      alert("Update!!!");
+      console.log(this.todo);
+      store.dispatch("updateTodo", { ...this.todo });
+      this.editMode = false;
     },
     deleteTodo() {
       alert("Delete!!!");
