@@ -4,6 +4,6 @@
 
 <br />
 
-<div style="text-align:center">
+<p align="center">
     <img src="https://i.gyazo.com/84731c8a6b75772a904155276a81a42a.gif" width="480">
-</div>
+</p>
