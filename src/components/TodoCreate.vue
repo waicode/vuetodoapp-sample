@@ -1,18 +1,25 @@
 <template>
   <Modal ref="modal">
+    <div class="todoCreateTitle">新しいTODOを登録</div>
     <form class="appForm">
-      <div class="formControl">
-        <label class="label">タイトル</label>
-        <input v-model="form.title" class="formInput" type="text" />
-      </div>
-      <div class="formControl formControlLast">
-        <label class="label">メモ</label>
-        <textarea
-          v-model="form.description"
-          cols="30"
-          rows="5"
-          class="formInput"
-        />
+      <div class="formControlWrapper">
+        <div class="formControl">
+          <input
+            placeholder="タイトル"
+            v-model="form.title"
+            class="formInput textField"
+            type="text"
+          />
+        </div>
+        <div class="formControl formControlLast">
+          <textarea
+            v-model="form.description"
+            cols="30"
+            rows="5"
+            class="formInput textField"
+            placeholder="メモ"
+          />
+        </div>
       </div>
       <div class="appError">
         <div class="formError">
@@ -67,4 +74,13 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.todoCreateTitle {
+  font-size: 1.28rem;
+  font-weight: bold;
+  margin-bottom: 4px;
+  justify-content: left;
+  text-align: left;
+  font-family: "Inter", "BlinkMacSystemFont", Arial, sans-serif;
+}
+</style>

@@ -10,7 +10,7 @@
       />
     </div>
     <div v-else class="noTodos">
-      TODOを登録しましょう
+      👇 TODOを登録してね
     </div>
   </div>
 </template>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="appButton" @click="isOpen = true">
-      TODOを新規登録
+      新規登録
     </div>
     <div class="modal" :class="{ isActive: isOpen }">
       <div class="modalContent">
@@ -38,8 +38,11 @@ export default {
 .close {
   color: #aaa;
   float: right;
-  font-size: 28px;
+  font-size: 32px;
   font-weight: bold;
+  top: -28px;
+  right: -12px;
+  position: relative;
   &:hover {
     cursor: pointer;
   }
@@ -57,9 +60,9 @@ export default {
   &Content {
     background-color: #fefefe;
     margin: 15% auto;
-    padding: 20px;
+    padding: 28px;
     border: 1px solid #888;
-    border-radius: 3px;
+    border-radius: 16px;
     width: 56%;
     text-align: left;
   }
