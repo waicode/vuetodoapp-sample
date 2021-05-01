@@ -63,7 +63,7 @@ export default {
     padding: 28px;
     border: 1px solid #888;
     border-radius: 16px;
-    width: 56%;
+    width: 48%;
     text-align: left;
   }
   &.isActive {

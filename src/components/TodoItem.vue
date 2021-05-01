@@ -38,7 +38,7 @@
         <button @click.prevent="updateTodo" class="appButton isPrimary">
           完了
         </button>
-        <button @click.prevent="editMode = false" class="appButton isSecondary">
+        <button @click.prevent="cancelEdit" class="appButton isSecondary">
           キャンセル
         </button>
       </div>
@@ -72,6 +72,11 @@ export default {
     };
   },
   methods: {
+    cancelEdit() {
+      this.todo.title = this.title;
+      this.todo.description = this.description;
+      this.editMode = false;
+    },
     updateTodo() {
       store.dispatch("updateTodo", { ...this.todo });
       this.editMode = false;
